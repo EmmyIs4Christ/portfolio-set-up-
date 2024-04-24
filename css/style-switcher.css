@@ -1,0 +1,171 @@
+.style-switcher {
+  position: fixed;
+  right: 10px;
+  top: 150px;
+  width: 200px;
+  z-index: 101;
+  padding: 15px;
+  border-radius: 5px;
+  transition: all 0.5s ease;
+  transform: translateX(100%);
+}
+
+.arrowUp {
+  /* padding: 1rem; */
+  animation-name: scaleUp;
+  animation-duration: 1.3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  position: fixed;
+  width: 3rem;
+  height: 3rem;
+  bottom: 4rem;
+  right: 4rem;
+  border-radius: 50%;
+  background-color: var(--skin-color);
+  color: var(--color-primary-white);
+  font-size: 1.1rem;
+  font-weight: 8000;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  visibility: hidden;
+  z-index: -100;
+  box-shadow: var(--color-box-shadow);
+}
+
+.showArrow {
+  visibility: visible;
+  z-index: 1000;
+}
+
+@media (width > 1200px) {
+  .style-switcher {
+    right: 15%;
+  }
+  .arrowUp {
+    right: 10%;
+  }
+}
+@media (width > 1500px) {
+  .style-switcher {
+    right: 15%;
+  }
+  .arrowUp {
+    right: 20%;
+  }
+}
+@media (width > 2000px) {
+  .style-switcher {
+    right: 30%;
+  }
+  .arrowUp {
+    right: 25%;
+  }
+}
+
+.style-switcher.open {
+  transform: translateX(-15px);
+}
+
+.style-switcher .switcher-theme {
+  visibility: hidden;
+  background: var(--color-primary-white);
+  border: 1px solid var(--color-border);
+  padding: 0 5px;
+}
+
+.style-switcher.open .switcher-theme {
+  visibility: visible;
+}
+
+.switcher-i {
+  position: relative;
+}
+
+.style-switcher .s-icon {
+  position: absolute;
+  height: 40px;
+  top: 0;
+  width: 40px;
+  text-align: center;
+  font-size: 20px;
+  background: var(--bg-black-100);
+  color: var(--text-black--900);
+  right: 110%;
+  border: 1px solid var(--color-border);
+  margin-right: 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.style-switcher .s-icon i {
+  line-height: 40px;
+  color: var(--text-black-900);
+}
+
+.style-switcher .style-switcher-toggler {
+  top: 0;
+}
+.style-switcher .day-night {
+  top: 55px;
+}
+
+.style-switcher .s-icon.day-night {
+  border-style: none;
+}
+
+.style-switcher h4 {
+  margin: 0 0 10px;
+  color: var(--text-black--700);
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.style-switcher .colors {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+  justify-content: space-between;
+}
+
+.style-switcher .colors span {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.style-switcher .color-1 {
+  background: #04a9b2;
+}
+
+.style-switcher .color-2 {
+  background: #37b182;
+}
+
+.style-switcher .color-3 {
+  background: #f7aa00;
+}
+
+.style-switcher .color-4 {
+  background: #0dcab7;
+}
+
+.style-switcher .color-5 {
+  background: #f021b2;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
