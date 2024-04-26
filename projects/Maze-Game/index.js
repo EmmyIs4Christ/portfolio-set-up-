@@ -18,7 +18,7 @@ let heighestScore = 0;
 startGameBtn.addEventListener("click", () => {
   document.querySelector(".onePage").classList.add("hidden");
   sideBar.classList.remove("hidden");
-  
+
   callMazeGame();
 });
 
@@ -92,11 +92,12 @@ if (selectLevel.value === "") {
 let gameTimer, gameScore, countDownFn;
 
 const callMazeGame = () => {
-
   //////BACKGROUND MUSIC
   let backgroundSound = new Audio("stranger-things-124008.mp3");
-  let winSound = new Audio("mixkit-conference-audience-clapping-strongly-476.wav");
-  let loseSound = new Audio("mixkit-circus-lose-2030.wav")
+  let winSound = new Audio(
+    "mixkit-conference-audience-clapping-strongly-476.wav"
+  );
+  let loseSound = new Audio("mixkit-circus-lose-2030.wav");
   backgroundSound.play();
 
   //////  COUNT DOWN LOGIC
@@ -127,7 +128,7 @@ const callMazeGame = () => {
 
     if (gameTimer <= 1) {
       backgroundSound.pause();
-    };
+    }
 
     if (gameTimer <= 3) {
       document.querySelector("#mazeTimer").style.color = "red";
@@ -148,16 +149,15 @@ const callMazeGame = () => {
 
   let width, height;
 
-  if(window.innerWidth > 600) {
-     width = window.innerWidth * 0.8;
-     height = window.innerHeight;
+  if (window.innerWidth > 600) {
+    width = window.innerWidth * 0.8;
+    height = window.innerHeight;
   } else {
     width = window.innerWidth;
     height = window.innerHeight * 0.8;
     sideBar.style.top = `${height}px`;
   }
 
-  
   const unitLengthX = width / cellsHorizontal;
   const unitLengthY = height / cellsVertical;
   const startingRow = Math.floor(Math.random() * cellsHorizontal);
@@ -195,7 +195,6 @@ const callMazeGame = () => {
   };
 
   // console.log(startingRow, startingColumn);
-
 
   let render = Render.create({
     element: document.body,
@@ -362,21 +361,28 @@ const callMazeGame = () => {
 
   World.add(world, ball);
 
-
   /////EVENT LISTENER FOR MOVING BALL
 
-  upDirection.addEventListener("click", () => Body.setVelocity(ball, { x, y: y - 5 }));
+  upDirection.addEventListener("click", () =>
+    Body.setVelocity(ball, { x, y: y - 5 })
+  );
 
-  rightDirection.addEventListener("click", () => Body.setVelocity(ball, { x: x + 5, y }));
+  rightDirection.addEventListener("click", () =>
+    Body.setVelocity(ball, { x: x + 5, y })
+  );
 
-  downDirection.addEventListener("click", () => Body.setVelocity(ball, { x, y: y + 5 }));
+  downDirection.addEventListener("click", () =>
+    Body.setVelocity(ball, { x, y: y + 5 })
+  );
 
-  leftDirection.addEventListener("click", () => Body.setVelocity(ball, { x: x - 5, y }));
+  leftDirection.addEventListener("click", () =>
+    Body.setVelocity(ball, { x: x - 5, y })
+  );
 
   window.addEventListener("keydown", (event) => {
     if (event.key === "ArrowUp") {
       Body.setVelocity(ball, { x, y: y - 5 });
-    } else if (event.target === "ArrowRight") {
+    } else if (event.key === "ArrowRight") {
       Body.setVelocity(ball, { x: x + 5, y });
     } else if (event.key === "ArrowDown") {
       Body.setVelocity(ball, { x, y: y + 5 });
@@ -429,12 +435,11 @@ const callMazeGame = () => {
           heighestScore = gameScore;
           document.querySelector("#hScoreTotal").textContent = heighestScore;
           document.querySelector("#hPlayerName").textContent = playerName;
-        };
+        }
 
         ////STOPING SOUND
-      backgroundSound.pause();
-      winSound.play();
-
+        backgroundSound.pause();
+        winSound.play();
       }
     });
 
@@ -475,7 +480,6 @@ const callMazeGame = () => {
   //////PAUSE GAME LOGIC
   document.querySelector(".pausePlay").addEventListener("click", () => {
     clearInterval(countDownFn);
-
 
     backgroundSound.pause();
     document.querySelector(".pauseOverlay").classList.remove("hidden");
@@ -521,12 +525,11 @@ const callMazeGame = () => {
 
         document.querySelector(".loose").classList.remove("hidden");
         gameTimer = 20;
-
-      };
+      }
 
       if (gameTimer <= 1) {
         backgroundSound.pause();
-      };
+      }
 
       if (gameTimer <= 3) {
         document.querySelector("#mazeTimer").style.color = "red";
