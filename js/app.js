@@ -129,6 +129,7 @@ document.addEventListener("click", (e) => {
 const postRequest = async function (mail) {
   try {
     const response = await fetch(
+      // "https://new-entries-default-rtdb.firebaseio.com/client.json",
       "https://new-entries-default-rtdb.firebaseio.com/client.json",
       {
         method: "POST",
