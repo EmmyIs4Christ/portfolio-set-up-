@@ -48,6 +48,20 @@ function count() {
 
 count();
 
+/////DATE SET UP
+const startDate = 2021;
+const currentDate = new Date().getFullYear();
+
+const dateDiffrence = currentDate - startDate;
+
+document.querySelector(".footer-year").innerHTML = currentDate;
+
+document
+  .querySelectorAll(".years_diff")
+  .forEach((element) => (element.innerHTML = dateDiffrence));
+
+console.log(currentDate, dateDiffrence);
+
 ///HANDBURGER BTN EFFECT
 const handburgerBtn = document.querySelector(".handburgerBtn");
 const nav = document.querySelector(".header nav");

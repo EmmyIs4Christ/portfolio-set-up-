@@ -23,12 +23,12 @@ class Products {
     try {
       let response = await fetch("products.json");
       let { items } = await response.json();
-
       let products = items.map((item) => {
         let { price, title } = item.fields;
         let { id } = item.sys;
         let image = item.fields.image.fields.file.url;
 
+        console.log(price, title, response);
         return { price, title, id, image };
       });
 
